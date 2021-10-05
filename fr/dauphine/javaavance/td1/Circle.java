@@ -18,11 +18,11 @@ public class Circle {
 		c2.translate(1,1);
 		System.out.println(c);
 		System.out.println(c2);	
+		System.out.println(c2.contains(p));
 	}
 	
-	private Point getCenter() {
-		// TODO Auto-generated method stub
-		return this.center;
+	public Point getCenter() {
+		return new Point(center);
 	}
 
 	@Override
@@ -39,6 +39,7 @@ public class Circle {
 		this.center.setY(copy_point.getY()+dy);
 	}
 	
+	
 	public int getRadius() {
 		return radius;
 	}
@@ -53,12 +54,26 @@ public class Circle {
 	
 	public boolean contains(Point p) {
 		boolean res = false;
+		double resCalculX = Math.pow((p.getX()-this.center.getX()), 2);
+		double resCalculY = Math.pow((p.getY()-this.center.getY()), 2);
+		
+		if(Math.sqrt(resCalculX+resCalculY)<this.radius) {
+			res = true;
+		}
 		return res;
 	}
 
 	public boolean contains(Point p, Circle...circles) {
-		boolean res = false;
-		return res;
+		for(Circle c: circles)
+			if(c.contains(p))
+				return true;
+		return false;
+	}
+	
+	
+	@Override
+	public boolean equals(Object obj) {
+		return ((Circle) obj).radius == radius && ((Circle) obj).center.equals(center); 
 	}
 
 }
