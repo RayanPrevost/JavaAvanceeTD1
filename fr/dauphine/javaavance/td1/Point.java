@@ -13,7 +13,7 @@ public class Point {
 	}
 	public Point(Point p2) {
 		this.x = p2.getX();
-		this.x = p2.getY();
+		this.y = p2.getY();
 		
 	}
 	
@@ -62,9 +62,9 @@ public class Point {
 		return  "("+this.getX()+","+this.getY()+")";
 	}
 	
-	public void translate(int dx, int dy) {
-		this.x+=dx;
-		this.y+=dy;
+	public Point translate(int dx, int dy) {
+		return new Point(this.x+dx,this.y+dy);
+
 	}
 	
 }
