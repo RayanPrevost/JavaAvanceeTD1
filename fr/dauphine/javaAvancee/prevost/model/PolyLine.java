@@ -1,4 +1,4 @@
-package fr.dauphine.javaavance.td1;
+package fr.dauphine.javaAvancee.prevost.model;
 
 //import java.util.Arrays;
 import java.util.Iterator;

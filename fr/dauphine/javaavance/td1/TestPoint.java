@@ -2,6 +2,8 @@ package fr.dauphine.javaavance.td1;
 
 import java.util.ArrayList;
 
+import fr.dauphine.javaAvancee.prevost.model.Point;
+
 public class TestPoint {
 
 	private int x;
