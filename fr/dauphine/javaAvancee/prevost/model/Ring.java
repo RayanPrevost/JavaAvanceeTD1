@@ -1,23 +1,23 @@
 package fr.dauphine.javaAvancee.prevost.model;
 
-public class Ring {
+import java.awt.Graphics;
+import java.io.IOException;
+
+public class Ring implements Shape{
 	
 	private Circle circle;
 	private int radiusInterne;
 
-	public Ring(Point p, int radius, int radiusInterne) {
+	public Ring(Point p, int radius, int radiusInterne){
 			if(radius > radiusInterne) {
 				this.circle = new Circle(p,radius);
 				this.radiusInterne = radiusInterne;
 			}
+			
+			
 	}
 
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		Point p = new Point(1,1);
-		Ring ring = new Ring(p,2,3);
-		
-	}
+
 	@Override
 	public boolean equals(Object obj) {
 		Ring ring = (Ring)obj;
@@ -39,5 +39,17 @@ public class Ring {
 			if(r.contains(p))
 				return true;
 		return false;
+	}
+	
+	public void draw(Graphics g) {
+		g.drawOval(this.circle.getCenter().getX(), this.circle.getCenter().getY(), this.radiusInterne, this.circle.getRadius());
+	}
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Point p = new Point(1,1);
+		Ring ring = new Ring(p,2,3);
+		
+		
 	}
 }

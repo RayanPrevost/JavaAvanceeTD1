@@ -1,6 +1,8 @@
 package fr.dauphine.javaAvancee.prevost.model;
 
-public class Point {
+import java.awt.Graphics;
+
+public class Point implements Shape {
 
 	private int x;
 	private int y;
@@ -11,23 +13,16 @@ public class Point {
 		this.y = py;
 		instanceCreate++;
 	}
+	
 	public Point(Point p2) {
 		this.x = p2.getX();
 		this.y = p2.getY();
-		
 	}
 	
 	private static void afficher() {
 		Point p = new Point(2,5);
 		System.out.println("("+p.getX()+","+p.getY()+")");
-		
-		
 		System.out.println("Nombres d'instances de Point : "+getInstanceCreate());
-	}
-	
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		afficher();
 	}
 	
 	public boolean isSameAs(Point p) {
@@ -66,5 +61,15 @@ public class Point {
 		return new Point(this.x+dx,this.y+dy);
 
 	}
+	
+	
+	public void draw(Graphics g) {
+		g.drawLine(0,0, this.getX(), this.getY());
+	}
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		afficher();
+	}
+	
 	
 }

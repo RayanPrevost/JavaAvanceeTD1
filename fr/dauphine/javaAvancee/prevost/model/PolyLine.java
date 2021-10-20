@@ -1,12 +1,13 @@
 package fr.dauphine.javaAvancee.prevost.model;
 
+import java.awt.Graphics;
 //import java.util.Arrays;
 import java.util.Iterator;
 import java.util.LinkedList;
 
 
 
-public class PolyLine {
+public class PolyLine implements Shape {
 	/*
 	Point[] array;
 	
@@ -98,6 +99,11 @@ public class PolyLine {
 		while(iterator.hasNext()) {
 			System.out.println(iterator.next());
 		}
+	}
+	
+	public void draw(Graphics g) {
+		
+		g.drawLine(this.list.getFirst().getX(),this.list.getFirst().getY() , this.list.getLast().getX(), this.list.getLast().getY());
 	}
 	
 	public static void main(String[] args) {

@@ -1,6 +1,8 @@
 package fr.dauphine.javaAvancee.prevost.model;
 
-public class Circle {
+import java.awt.Graphics;
+
+public class Circle implements Shape{
 
 	private final Point center;
 	private int radius;
@@ -11,14 +13,9 @@ public class Circle {
 				
 	}
 	
-	public static void main(String[] args) {
-		Point p = new Point(1,2); 
-		Circle c = new Circle(p,1);
-		Circle c2 = new Circle(p,5);
-		c2.translate(1,1);
-		System.out.println(c);
-		System.out.println(c2);	
-		System.out.println(c2.contains(p));
+	public void draw(Graphics g ) {
+		g.drawOval(getCenter().getX(), getCenter().getY(), getRadius(), getRadius());
+
 	}
 	
 	public Point getCenter() {
@@ -74,6 +71,16 @@ public class Circle {
 	@Override
 	public boolean equals(Object obj) {
 		return ((Circle) obj).radius == radius && ((Circle) obj).center.equals(center); 
+	}
+	
+	public static void main(String[] args) {
+		Point p = new Point(1,2); 
+		Circle c = new Circle(p,1);
+		Circle c2 = new Circle(p,5);
+		c2.translate(1,1);
+		System.out.println(c);
+		System.out.println(c2);	
+		System.out.println(c2.contains(p));
 	}
 
 }
